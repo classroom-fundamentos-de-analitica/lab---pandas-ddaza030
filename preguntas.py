@@ -138,7 +138,7 @@ def pregunta_08():
     tbl0["suma"] = tbl0._c0 + tbl0._c2
 
     return tbl0
-
+    
 
 def pregunta_09():
     """
@@ -155,7 +155,10 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
+    tbl0 = tbl0.drop("suma")
+    
+    
+    return sorted(map(may , list(tbl1._c4.unique())))
 
 
 def pregunta_10():
@@ -172,7 +175,11 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return
+    df = pd.DataFrame(tbl0.groupby("_c1")._c2.agg(lambda col: ":".join(sorted([str(x) for x in col]))))
+    df.columns = ["_c1"]
+    df.index.name = "_c0"
+    
+    return df
 
 
 def pregunta_11():
@@ -209,7 +216,12 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    df = tbl2.join(pd.DataFrame([a+":"+str(b) for a,b in zip(tbl2._c5a,tbl2._c5b)], columns = ["holi"]))
+    df.groupby("_c0")
+    df1 = pd.DataFrame(df.groupby("_c0").holi.agg(lambda col: ",".join(sorted([str(x) for x in col]))))
+    df1.columns = ["_c5"]
+    df1.index.name = "_c0"
+    return df1
 
 
 def pregunta_13():
@@ -226,4 +238,6 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    return
+    merge = pd.merge(tbl0,tbl2)
+ 
+    return merge.groupby("_c1").sum()._c5b 
