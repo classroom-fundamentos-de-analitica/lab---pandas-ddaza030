@@ -135,7 +135,9 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    tbl0["suma"] = tbl0._c0 + tbl0._c2
+    
+    respuesta = tbl0.copy()
+    respuesta["suma"] = tbl0._c0 + tbl0._c2
 
     return tbl0
     
@@ -154,8 +156,7 @@ def pregunta_09():
     38   38   E    1  1999-09-28  1999
     39   39   E    5  1998-01-26  1998
 
-    """
-    global tbl0 = tbl0.drop("suma")
+    """}
     
     
     return sorted(map(may , list(tbl1._c4.unique())))
