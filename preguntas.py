@@ -158,8 +158,7 @@ def pregunta_09():
 
     """
     
-    may = lambda x: x.upper()
-    return sorted(map(may , list(tbl1._c4.unique())))
+    return tbl0.join(pd.DataFrame(map(lambda x: x[0:4],tbl0._c3),columns = ["year"]))
 
 
 def pregunta_10():
@@ -177,8 +176,6 @@ def pregunta_10():
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
     df = pd.DataFrame(tbl0.groupby("_c1")._c2.agg(lambda col: ":".join(sorted([str(x) for x in col]))))
-    df.columns = ["_c1"]
-    df.index.name = "_c0"
     
     return df
 
