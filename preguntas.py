@@ -158,7 +158,7 @@ def pregunta_09():
 
     """
     
-    
+    may = lambda x: x.upper()
     return sorted(map(may , list(tbl1._c4.unique())))
 
 
