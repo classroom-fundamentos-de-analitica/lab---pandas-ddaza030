@@ -155,7 +155,7 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    tbl0 = tbl0.drop("suma")
+    global tbl0 = tbl0.drop("suma")
     
     
     return sorted(map(may , list(tbl1._c4.unique())))
