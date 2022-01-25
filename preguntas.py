@@ -175,8 +175,9 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    df = pd.DataFrame(tbl0.groupby("_c1")._c2.agg(lambda col: ":".join(sorted([str(x) for x in col]))))
     
+    df = pd.DataFrame(tbl0.groupby("_c1")._c2.agg(lambda col: ":".join(sorted([str(x) for x in col]))))
+    df.index.name = "_c0"
     return df
 
 
