@@ -197,7 +197,11 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    
+    df1 = pd.DataFrame(tbl1.groupby("_c0")._c4.agg(lambda col: ",".join(sorted([str(x) for x in col]))))
+    df1.reset_index(level=0, inplace=True)
+   
+    return df1
 
 
 def pregunta_12():
@@ -216,7 +220,6 @@ def pregunta_12():
     39   39                    ggg:3,hhh:8,jjj:5
     """
     df = tbl2.join(pd.DataFrame([a+":"+str(b) for a,b in zip(tbl2._c5a,tbl2._c5b)], columns = ["holi"]))
-    df.groupby("_c0")
     df1 = pd.DataFrame(df.groupby("_c0").holi.agg(lambda col: ",".join(sorted([str(x) for x in col]))))
     df1.columns = ["_c5"]
     df1.index.name = "_c0" 
