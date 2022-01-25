@@ -156,7 +156,7 @@ def pregunta_09():
     38   38   E    1  1999-09-28  1999
     39   39   E    5  1998-01-26  1998
 
-    """}
+    """
     
     
     return sorted(map(may , list(tbl1._c4.unique())))
