@@ -219,7 +219,8 @@ def pregunta_12():
     df.groupby("_c0")
     df1 = pd.DataFrame(df.groupby("_c0").holi.agg(lambda col: ",".join(sorted([str(x) for x in col]))))
     df1.columns = ["_c5"]
-    df1.index.name = "_c0"
+    df1.index.name = "_c0" 
+    df1.reset_index(level=0, inplace=True)
     return df1
 
 
