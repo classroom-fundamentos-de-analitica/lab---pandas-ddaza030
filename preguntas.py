@@ -139,7 +139,7 @@ def pregunta_08():
     respuesta = tbl0.copy()
     respuesta["suma"] = tbl0._c0 + tbl0._c2
 
-    return tbl0
+    return respuesta
     
 
 def pregunta_09():
